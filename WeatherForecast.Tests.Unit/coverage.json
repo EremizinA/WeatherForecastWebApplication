@@ -1,0 +1,12 @@
+{
+  "includeOrExcludeAssemblies": [
+    "-WeatherForecast.Tests.Common"
+  ],
+  "includeOrExcludeClasses": [
+    "-WeatherForecast.Api.Options.DbConnectionOptions",
+    "-WeatherForecast.Api.Repositories.WeatherTodayRepository",
+    "-WeatherForecast.Api.Repositories.CountryRepository",
+    "-WeatherForecast.Api.Startup",
+    "-Program"
+  ]
+}
