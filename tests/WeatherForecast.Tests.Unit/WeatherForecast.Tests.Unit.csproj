@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WeatherForecast.Tests.Common\WeatherForecast.Tests.Common.csproj" />
-    <ProjectReference Include="..\WebApplicationTest\WeatherForecast.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>

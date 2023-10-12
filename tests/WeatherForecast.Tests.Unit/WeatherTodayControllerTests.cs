@@ -5,20 +5,18 @@ using NSubstitute;
 using Microsoft.AspNetCore.Mvc;
 using FluentAssertions;
 using WeatherForecast.Tests.Common.Data;
+using NUnit.Framework;
 
 namespace WeatherForecast.Tests.Unit
 {
-    [TestFixture]
-    [Parallelizable(ParallelScope.All)]
-    [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
-    public class WeatherTodayControllerTests
+    public class WeatherTodayControllerTests: UnitTestBase
     {
         private WeatherTodayController _weatherTodayController;
         private readonly IWeatherTodayService _weatherTodayService = Substitute.For<IWeatherTodayService>();
         private Random _random;
 
         [SetUp]
-        public void Setup()
+        public override void Setup()
         {
             _weatherTodayController = new WeatherTodayController(_weatherTodayService);
             _random = new Random();
@@ -123,5 +121,8 @@ namespace WeatherForecast.Tests.Unit
             //Assert
             result.StatusCode.Should().Be(404);
         }
+
+        [TearDown]
+        public override void TearDown() {}
     }
 }

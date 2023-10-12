@@ -13,11 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebApplicationTest\WeatherForecast.Api.csproj" />
+    <Folder Include="Data\Scripts\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Scripts\" />
+    <ProjectReference Include="..\..\src\WeatherForecast.Api\WeatherForecast.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>
