@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using WeatherForecast.Api.Logging;
-using WeatherForecast.Api.Models;
+using WeatherForecast.Api.Models.Service;
 using WeatherForecast.Api.Repositories;
 
 namespace WeatherForecast.Api.Services

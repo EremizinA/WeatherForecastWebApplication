@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using WeatherForecast.Api.Logging;
-using WeatherForecast.Api.Models;
+using WeatherForecast.Api.Mappers;
+using WeatherForecast.Api.Models.Database;
+using WeatherForecast.Api.Models.Service;
 using WeatherForecast.Api.Repositories;
 
 namespace WeatherForecast.Api.Services
@@ -34,6 +36,27 @@ namespace WeatherForecast.Api.Services
             {
                 stopWatch.Stop();
                 _logger.LogInformation("All weather data retrieved in {0}ms", stopWatch.ElapsedMilliseconds);
+            }
+        }
+
+        public async Task<IEnumerable<WeatherTodayFrontEnd>> GetAllFrontEndAsync()
+        {
+            _logger.LogInformation("Retrieving all weather data for UI");
+            var stopWatch = Stopwatch.StartNew();
+            try
+            {
+                var weatherTodayDto = await _weatherTodayRepository.GetAllFrontEndDtoAsync();
+                return weatherTodayDto.Select(dto => dto.Map());
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something went wrong while retrieving all weather data for UI");
+                throw;
+            }
+            finally
+            {
+                stopWatch.Stop();
+                _logger.LogInformation("All weather data for UI retrieved in {0}ms", stopWatch.ElapsedMilliseconds);
             }
         }
 

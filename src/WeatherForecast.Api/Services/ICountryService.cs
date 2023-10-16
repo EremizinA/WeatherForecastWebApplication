@@ -1,4 +1,4 @@
-﻿using WeatherForecast.Api.Models;
+﻿using WeatherForecast.Api.Models.Service;
 
 namespace WeatherForecast.Api.Services
 {

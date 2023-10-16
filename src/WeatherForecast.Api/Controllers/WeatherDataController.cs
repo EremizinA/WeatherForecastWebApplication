@@ -1,7 +1,7 @@
 ﻿using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using WeatherForecast.Api.Models;
+using WeatherForecast.Api.Models.Service;
 
 namespace WeatherForecast.Api.Controllers
 {
