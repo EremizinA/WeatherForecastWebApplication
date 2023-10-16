@@ -1,11 +1,11 @@
 using WeatherForecast.Api.Controllers;
 using WeatherForecast.Api.Services;
-using WeatherForecast.Api.Models;
 using NSubstitute;
 using Microsoft.AspNetCore.Mvc;
 using FluentAssertions;
 using WeatherForecast.Tests.Common.Data;
 using NUnit.Framework;
+using WeatherForecast.Api.Models.Service;
 
 namespace WeatherForecast.Tests.Unit
 {

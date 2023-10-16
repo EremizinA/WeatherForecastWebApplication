@@ -1,7 +1,7 @@
 ﻿using Confluent.Kafka;
 using Confluent.Kafka.Admin;
 using Newtonsoft.Json;
-using WeatherForecast.Api.Models;
+using WeatherForecast.Api.Models.Service;
 using WeatherForecast.Api.Repositories;
 
 namespace WeatherForecast.Api.Services

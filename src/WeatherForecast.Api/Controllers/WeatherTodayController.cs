@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeatherForecast.Api.Models;
+using WeatherForecast.Api.Models.Service;
 using WeatherForecast.Api.Services;
 
 namespace WeatherForecast.Api.Controllers
@@ -18,6 +18,13 @@ namespace WeatherForecast.Api.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await _weatherTodayService.GetAllAsync();
+            return Ok(result);
+        }
+
+        [HttpGet("GetWeatherForTodayFrontEnd")]
+        public async Task<IActionResult> GetAllForFrontEnd()
+        {
+            var result = await _weatherTodayService.GetAllFrontEndAsync();
             return Ok(result);
         }
 

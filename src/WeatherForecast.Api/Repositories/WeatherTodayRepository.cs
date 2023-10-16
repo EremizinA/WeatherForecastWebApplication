@@ -1,6 +1,7 @@
-﻿using WeatherForecast.Api.Models;
-using WeatherForecast.Api.Data;
+﻿using WeatherForecast.Api.Data;
 using Dapper;
+using WeatherForecast.Api.Models.Service;
+using WeatherForecast.Api.Models.Database;
 
 namespace WeatherForecast.Api.Repositories;
 
@@ -18,6 +19,13 @@ public class WeatherTodayRepository : IWeatherTodayRepository
         const string query = "select * from WeatherToday";
         using var connection = await _connectionFactory.CreateDbConnectionAsync();
         return await connection.QueryAsync<WeatherToday>(query);
+    }
+
+    public async Task<IEnumerable<WeatherTodayFrontEndDto>> GetAllFrontEndDtoAsync()
+    {
+        const string query = "select Ct.[Name] as CityName, W.Temperature, W.Scale, Cn.[Name] as CountryName\r\nfrom WeatherToday as W\r\njoin Cities as Ct\r\non W.CityID = Ct.ID\r\njoin Countries as Cn\r\non Ct.CountryID = Cn.ID";
+        using var connection = await _connectionFactory.CreateDbConnectionAsync();
+        return await connection.QueryAsync<WeatherTodayFrontEndDto>(query);
     }
 
     public async Task<bool> CreateAllAsync(IEnumerable<WeatherToday> weatherTodayList)
