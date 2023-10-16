@@ -1,4 +1,4 @@
-﻿namespace WeatherForecast.Api.Models
+﻿namespace WeatherForecast.Api.Models.Service
 {
     public class WeatherIdsList
     {

@@ -1,11 +1,11 @@
 ﻿using WeatherForecast.Tests.Common.Extentions;
 using FluentAssertions;
-using WeatherForecast.Api.Models;
 using static WeatherForecast.Tests.Integration.SetUpFixture;
 using static WeatherForecast.Tests.Integration.IntegrationTestsData;
 using WeatherForecast.Tests.Common.Helpers;
 using NUnit.Framework;
 using WeatherForecast.Tests.Common.Constants;
+using WeatherForecast.Api.Models.Service;
 
 namespace WeatherForecast.Tests.Integration
 {

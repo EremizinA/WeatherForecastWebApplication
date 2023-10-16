@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherForecast.Api.Controllers;
 using WeatherForecast.Api.Logging;
-using WeatherForecast.Api.Models;
+using WeatherForecast.Api.Models.Service;
 using WeatherForecast.Api.Repositories;
 using WeatherForecast.Api.Services;
 using WeatherForecast.Tests.Common.Data;

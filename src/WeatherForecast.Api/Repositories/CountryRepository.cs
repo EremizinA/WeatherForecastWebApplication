@@ -1,6 +1,6 @@
-﻿using WeatherForecast.Api.Models;
-using WeatherForecast.Api.Data;
+﻿using WeatherForecast.Api.Data;
 using Dapper;
+using WeatherForecast.Api.Models.Service;
 
 namespace WeatherForecast.Api.Repositories;
 
