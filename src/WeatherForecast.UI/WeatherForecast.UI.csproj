@@ -4,6 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>177ab167-9f02-4e67-87f2-56fb15fc4b14</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherForecast.Api\WeatherForecast.Api.csproj" />
+  </ItemGroup>
 
 </Project>

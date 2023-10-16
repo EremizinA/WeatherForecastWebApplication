@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">WeatherForecastWebApp</h1>
+    <p asp-for="ErrorMessage">@Model.ErrorMessage</p>
+    <div asp-for="WeatherTodayList">
+        <p><a>Id </a><a>CityId </a><a>Temperature </a><a>Scale</a></p>
+        @for (int i = 0; i < Model.WeatherTodayList.Count(); i++)
+        {
+            <p>
+                <a>@Html.DisplayFor(_ => _.WeatherTodayList.ElementAt(i).Id);</a>
+                <a>@Html.DisplayFor(_ => _.WeatherTodayList.ElementAt(i).CityId);</a>
+                <a>@Html.DisplayFor(_ => _.WeatherTodayList.ElementAt(i).Temperature);</a>
+                <a>@Html.DisplayFor(_ => _.WeatherTodayList.ElementAt(i).Scale);</a>
+            </p>
+        }
+    </div>
+    <form method="post">
+        <input type="submit" />
+    </form>
+</div>
