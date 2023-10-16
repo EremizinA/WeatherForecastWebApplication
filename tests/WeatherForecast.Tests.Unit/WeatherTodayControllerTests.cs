@@ -56,6 +56,10 @@ namespace WeatherForecast.Tests.Unit
         {
             //Arrange
             var weatherToday = WeatherTodayGenerator.GenerateRandomWeatherToday(_random.Next(10));
+            var expectedWeatherIds = new WeatherIdsList()
+            {
+                WeatherIds = weatherToday.Select(x => x.Id).ToList(),
+            };
             _weatherTodayService.CreateAllAsync(weatherToday).Returns(true);
 
             //Act
@@ -63,7 +67,7 @@ namespace WeatherForecast.Tests.Unit
 
             //Assert
             result.StatusCode.Should().Be(201);
-            result.Value.Should().BeEquivalentTo(new { WeatherIds = string.Join(" ", weatherToday.Select(x => x.Id)) });
+            result.Value.Should().BeEquivalentTo(expectedWeatherIds);
         }
 
         [Test]
@@ -71,6 +75,10 @@ namespace WeatherForecast.Tests.Unit
         {
             //Arrange
             var weatherToday = WeatherTodayGenerator.GenerateRandomWeatherToday(_random.Next(10));
+            var expectedWeatherIds = new WeatherIdsList()
+            {
+                WeatherIds = weatherToday.Select(x => x.Id).ToList(),
+            };
             _weatherTodayService.CreateAllAsync(weatherToday).Returns(true);
 
             //Act
@@ -78,8 +86,7 @@ namespace WeatherForecast.Tests.Unit
 
             //Assert
             result.StatusCode.Should().Be(201);
-            result.Value.Should()
-                .BeEquivalentTo(new { WeatherIds = string.Join(" ", weatherToday.Select(x => x.Id)) });
+            result.Value.Should().BeEquivalentTo(expectedWeatherIds);
         }
 
         [Test]

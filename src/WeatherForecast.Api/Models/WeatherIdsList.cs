@@ -2,6 +2,6 @@
 {
     public class WeatherIdsList
     {
-        public string WeatherIds { get; set; }
+        public List<int> WeatherIds { get; set; }
     }
 }

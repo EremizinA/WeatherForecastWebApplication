@@ -1,7 +1,4 @@
-﻿using Azure.Core;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Diagnostics.Metrics;
+﻿using Microsoft.AspNetCore.Mvc;
 using WeatherForecast.Api.Models;
 using WeatherForecast.Api.Services;
 
@@ -33,7 +30,11 @@ namespace WeatherForecast.Api.Controllers
                 return BadRequest();
             }
 
-            return CreatedAtAction(nameof(CreateAll), new {WeatherIds = string.Join(' ', weatherTodayList.Select(w => w.Id))});
+            return CreatedAtAction(nameof(CreateAll), 
+                new WeatherIdsList
+                {
+                    WeatherIds = weatherTodayList.Select(w => w.Id).ToList()
+                });
         }
 
         [HttpDelete("DeleteWeatherForToday")]

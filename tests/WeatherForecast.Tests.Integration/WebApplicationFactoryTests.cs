@@ -43,7 +43,7 @@ namespace WeatherForecast.Tests.Integration
             Assert.Multiple(() =>
             {
                 response.Should().NotBeNull();
-                response.WeatherIds.Should().ContainAll(weatherForToday.Select(w => w.Id.ToString()).ToList());
+                response.WeatherIds.Should().BeEquivalentTo(weatherForToday.Select(w => w.Id).ToList());
             });
         }
     }

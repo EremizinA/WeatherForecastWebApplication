@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecast.Api", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecast.Tests.Unit", "tests\WeatherForecast.Tests.Unit\WeatherForecast.Tests.Unit.csproj", "{9F61E191-2753-42E9-A43E-F0FA169207EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.Tests.Common", "tests\WeatherForecast.Tests.Common\WeatherForecast.Tests.Common.csproj", "{FCA8DEDD-9CDC-40D6-9018-3B546AB414CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecast.Tests.Common", "tests\WeatherForecast.Tests.Common\WeatherForecast.Tests.Common.csproj", "{FCA8DEDD-9CDC-40D6-9018-3B546AB414CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.Tests.Integration", "tests\WeatherForecast.Tests.Integration\WeatherForecast.Tests.Integration.csproj", "{EF41453D-0A88-45FC-B37D-1FD6E1C9B9E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecast.Tests.Integration", "tests\WeatherForecast.Tests.Integration\WeatherForecast.Tests.Integration.csproj", "{EF41453D-0A88-45FC-B37D-1FD6E1C9B9E0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{8FCEF7DB-50AF-4782-A792-4E58350BAF75}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{81AA6D61-C8D5-4810-80F6-F00EFB3F0BD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.UI", "WeatherForecast.UI\WeatherForecast.UI.csproj", "{DB8081CA-0225-49B9-B224-8006723D4A9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{EF41453D-0A88-45FC-B37D-1FD6E1C9B9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF41453D-0A88-45FC-B37D-1FD6E1C9B9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF41453D-0A88-45FC-B37D-1FD6E1C9B9E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8081CA-0225-49B9-B224-8006723D4A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8081CA-0225-49B9-B224-8006723D4A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8081CA-0225-49B9-B224-8006723D4A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8081CA-0225-49B9-B224-8006723D4A9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{9F61E191-2753-42E9-A43E-F0FA169207EF} = {81AA6D61-C8D5-4810-80F6-F00EFB3F0BD0}
 		{FCA8DEDD-9CDC-40D6-9018-3B546AB414CD} = {81AA6D61-C8D5-4810-80F6-F00EFB3F0BD0}
 		{EF41453D-0A88-45FC-B37D-1FD6E1C9B9E0} = {81AA6D61-C8D5-4810-80F6-F00EFB3F0BD0}
+		{DB8081CA-0225-49B9-B224-8006723D4A9F} = {8FCEF7DB-50AF-4782-A792-4E58350BAF75}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8EC8DA18-C78D-4BE6-AB9D-E534AD345DAE}
