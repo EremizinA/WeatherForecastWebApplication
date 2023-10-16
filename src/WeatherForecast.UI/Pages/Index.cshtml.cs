@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WeatherForecast.Api.Controllers;
-using WeatherForecast.Api.Models;
+using WeatherForecast.Api.Models.Service;
 
 namespace WeatherForecast.UI.Pages
 {
@@ -11,10 +12,10 @@ namespace WeatherForecast.UI.Pages
         private readonly ILogger<IndexModel> _logger;
         
         [BindProperty]
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
 
         [BindProperty]
-        public List<WeatherToday> WeatherTodayList { get; set; }
+        public List<WeatherTodayFrontEnd> WeatherTodayFrontEndList { get; set; } = new List<WeatherTodayFrontEnd>();
 
         public IndexModel(WeatherTodayController weatherTodayController, ILogger<IndexModel> logger)
         {
@@ -22,22 +23,27 @@ namespace WeatherForecast.UI.Pages
             _logger = logger;
         }
 
-        public async Task OnGet()
+        public void OnGet()
         {
-            var result = await _weatherTodayController.GetAll();
-            var okResult = result as OkObjectResult;
-            if (okResult != null)
-            {
-                var weatherList = okResult.Value as List<WeatherToday>;
-                if(weatherList != null)
-                {
-                    WeatherTodayList = weatherList;
-                }
-            }
+
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostGetWeatherToday()
         {
+            var result = await _weatherTodayController.GetAllForFrontEnd();
+            if (result is OkObjectResult okResult)
+            {
+                if (okResult.Value is IEnumerable<WeatherTodayFrontEnd> weatherList)
+                {
+                    WeatherTodayFrontEndList = weatherList.ToList();
+                }
+            }
+            return Page();
+        }
+
+        public IActionResult OnPostClearWeather()
+        {
+            WeatherTodayFrontEndList = new List<WeatherTodayFrontEnd>();
             return Page();
         }
     }

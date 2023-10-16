@@ -7,19 +7,28 @@
 <div class="text-center">
     <h1 class="display-4">WeatherForecastWebApp</h1>
     <p asp-for="ErrorMessage">@Model.ErrorMessage</p>
-    <div asp-for="WeatherTodayList">
-        <p><a>Id </a><a>CityId </a><a>Temperature </a><a>Scale</a></p>
-        @for (int i = 0; i < Model.WeatherTodayList.Count(); i++)
-        {
-            <p>
-                <a>@Html.DisplayFor(_ => _.WeatherTodayList.ElementAt(i).Id);</a>
-                <a>@Html.DisplayFor(_ => _.WeatherTodayList.ElementAt(i).CityId);</a>
-                <a>@Html.DisplayFor(_ => _.WeatherTodayList.ElementAt(i).Temperature);</a>
-                <a>@Html.DisplayFor(_ => _.WeatherTodayList.ElementAt(i).Scale);</a>
-            </p>
-        }
-    </div>
     <form method="post">
-        <input type="submit" />
+        <button class="get-weather" type="submit" asp-page-handler="GetWeatherToday">Get weather!</button>
+        <p></p>
+        <button class="clear-button" asp-page-handler="ClearWeather">Clear</button>
+            <div asp-for="WeatherTodayList">
+                <table>
+                    <tr class="weather-today-table-head">
+                        <th>CityName</th>
+                        <th>Temperature</th>
+                        <th>Scale</th>
+                        <th>CountryName</th>
+                    </tr>
+                    @for (int i = 0; i < Model.WeatherTodayFrontEndList.Count(); i++)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(_ => _.WeatherTodayFrontEndList.ElementAt(i).CityName)</td>
+                            <td>@Html.DisplayFor(_ => _.WeatherTodayFrontEndList.ElementAt(i).Temperature)</td>
+                            <td>@Html.DisplayFor(_ => _.WeatherTodayFrontEndList.ElementAt(i).Scale)</td>
+                            <td>@Html.DisplayFor(_ => _.WeatherTodayFrontEndList.ElementAt(i).CountryName)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
     </form>
 </div>

@@ -16,3 +16,20 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+table, th, td {
+    border: 1px solid;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    padding: 5px;
+}
+
+.get-weather {
+    margin: auto
+}
