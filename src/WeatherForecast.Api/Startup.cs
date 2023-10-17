@@ -34,6 +34,8 @@ namespace WeatherForecast.Api
 
             services.AddSingleton<ICountryRepository, CountryRepository>();
             services.AddSingleton<ICountryService, CountryService>();
+            services.AddSingleton<ICityRepository, CityRepository>();
+            services.AddSingleton<ICityService, CityService>();
             services.AddSingleton<IWeatherTodayRepository, WeatherTodayRepository>();
             services.AddSingleton<IWeatherTodayService, WeatherTodayService>();
             services.AddTransient(typeof(ILoggerAdapter<>), typeof(LoggerAdapter<>));

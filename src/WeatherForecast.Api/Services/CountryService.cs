@@ -7,23 +7,23 @@ namespace WeatherForecast.Api.Services
 {
     public class CountryService: ICountryService
     {
-        private readonly ICountryRepository _weatherForecastRepository;
+        private readonly ICountryRepository _countryRepository;
         private readonly ILoggerAdapter<CountryService> _logger;
 
         public CountryService(ICountryRepository weatherForecastRepository,
             ILoggerAdapter<CountryService> logger)
         {
-            _weatherForecastRepository = weatherForecastRepository;
+            _countryRepository = weatherForecastRepository;
             _logger = logger;
         }
 
-        public async Task<IEnumerable<Country>> GetAllAsync()
+        public async Task<IEnumerable<Country?>> GetAllAsync()
         {
             _logger.LogInformation("Retrieving all countries");
             var stopWatch = Stopwatch.StartNew();
             try
             {
-                return await _weatherForecastRepository.GetAllAsync();
+                return await _countryRepository.GetAllAsync();
             }
             catch (Exception e)
             {
@@ -43,7 +43,7 @@ namespace WeatherForecast.Api.Services
             var stopWatch = Stopwatch.StartNew();
             try
             {
-                return await _weatherForecastRepository.GetByIdAsync(id);
+                return await _countryRepository.GetByIdAsync(id);
             }
             catch (Exception e)
             {
@@ -57,13 +57,13 @@ namespace WeatherForecast.Api.Services
             }
         }
 
-        public async Task<bool> CreateAsync(Country country)
+        public async Task<bool> CreateAsync(Country? country)
         {
-            _logger.LogInformation("Creating country with name: {0}", country.Name);
+            _logger.LogInformation("Creating country with name: {0}", country?.Name);
             var stopWatch = Stopwatch.StartNew();
             try
             {
-                return await _weatherForecastRepository.CreateAsync(country);
+                return await _countryRepository.CreateAsync(country);
             }
             catch (Exception e)
             {
@@ -73,7 +73,7 @@ namespace WeatherForecast.Api.Services
             finally
             {
                 stopWatch.Stop();
-                _logger.LogInformation("User with name {0} created in {1}ms", country.Name, stopWatch.ElapsedMilliseconds);
+                _logger.LogInformation("Country with name {0} created in {1}ms", country?.Name, stopWatch.ElapsedMilliseconds);
             }
         }
 
@@ -83,7 +83,7 @@ namespace WeatherForecast.Api.Services
             var stopWatch = Stopwatch.StartNew();
             try
             {
-                return await _weatherForecastRepository.DeleteByIdAsync(id);
+                return await _countryRepository.DeleteByIdAsync(id);
             }
             catch (Exception e)
             {
@@ -93,7 +93,7 @@ namespace WeatherForecast.Api.Services
             finally
             {
                 stopWatch.Stop();
-                _logger.LogInformation("User with country {0} deleted in {1}ms", id, stopWatch.ElapsedMilliseconds);
+                _logger.LogInformation("Country with country {0} deleted in {1}ms", id, stopWatch.ElapsedMilliseconds);
             }
         }
     }

@@ -2,11 +2,8 @@
 
 namespace WeatherForecast.Api.Services
 {
-    public interface ICountryService
+    public interface ICountryService : IBaseService<Country>
     {
-        Task<IEnumerable<Country>> GetAllAsync();
-        Task<Country?> GetByIdAsync(int id);
-        Task<bool> CreateAsync(Country country);
-        Task<bool> DeleteByIdAsync(int id);
+
     }
 }

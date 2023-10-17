@@ -2,10 +2,7 @@
 
 namespace WeatherForecast.Api.Repositories;
 
-public interface ICountryRepository
+public interface ICountryRepository: IBaseRepository<Country?>
 {
-    Task<IEnumerable<Country>> GetAllAsync();
-    Task<Country?> GetByIdAsync(int id);
-    Task<bool> CreateAsync(Country country);
-    Task<bool> DeleteByIdAsync(int id);
+
 }
