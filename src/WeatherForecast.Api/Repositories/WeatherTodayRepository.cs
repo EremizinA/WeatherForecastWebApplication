@@ -28,6 +28,13 @@ public class WeatherTodayRepository : IWeatherTodayRepository
         return await connection.QueryAsync<WeatherTodayFrontEndDto>(query);
     }
 
+    //public async Task<IEnumerable<WeatherTodayFrontEndDto>> GetFrontEndDtoByCountryAndCityAsync(string countryName = "", string cityName = "")
+    //{
+    //    const string query = "select Ct.[Name] as CityName, W.Temperature, W.Scale, Cn.[Name] as CountryName\r\nfrom WeatherToday as W\r\njoin Cities as Ct\r\non W.CityID = Ct.ID\r\njoin Countries as Cn\r\non Ct.CountryID = Cn.ID";
+    //    using var connection = await _connectionFactory.CreateDbConnectionAsync();
+    //    return await connection.QueryAsync<WeatherTodayFrontEndDto>(query);
+    //}
+
     public async Task<bool> CreateAllAsync(IEnumerable<WeatherToday> weatherTodayList)
     {
         var query = "insert into WeatherToday ([Temperature],[Scale],[CityId]) values ";
