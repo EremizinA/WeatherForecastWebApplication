@@ -13,13 +13,14 @@ public class CountryRepository : ICountryRepository
         _connectionFactory = connectionFactory;
     }
 
-    public async Task<IEnumerable<Country>> GetAllAsync()
+    public async Task<IEnumerable<Country?>> GetAllAsync()
     {
         const string query = "select * from Countries";
         using var connection = await _connectionFactory.CreateDbConnectionAsync();
-        return await connection.QueryAsync<Country>(query);
+        return await connection.QueryAsync<Country?>(query);
     }
 
+    //TODO: need to put it in separate repository in future
     public async Task<IEnumerable<WeatherToday>> GetAllWeatherAsync()
     {
         const string query = "select * from WeatherToday";
@@ -31,14 +32,14 @@ public class CountryRepository : ICountryRepository
     {
         const string query = "select * from Countries where ID = @Id";
         using var connection = await _connectionFactory.CreateDbConnectionAsync();
-        return await connection.QuerySingleOrDefaultAsync<Country>(query, new { Id = id });
+        return await connection.QuerySingleOrDefaultAsync<Country?>(query, new { Id = id });
     }
 
-    public async Task<bool> CreateAsync(Country country)
+    public async Task<bool> CreateAsync(Country? country)
     {
         const string query = "INSERT INTO Countries ([Name],[CountryCode]) VALUES (@Name, @CountryCode)";
         using var connection = await _connectionFactory.CreateDbConnectionAsync();
-        var result = await connection.ExecuteAsync(query, new { country.Name, country.CountryCode });
+        var result = await connection.ExecuteAsync(query, new { country?.Name, country?.CountryCode });
         return result > 0;
     }
 

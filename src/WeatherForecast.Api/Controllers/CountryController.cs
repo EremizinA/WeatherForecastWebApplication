@@ -8,24 +8,24 @@ namespace WeatherForecast.Api.Controllers
     [Route("[controller]")]
     public class CountryController : ControllerBase
     {
-        private readonly ICountryService _weatherForecastService;
+        private readonly ICountryService _countryService;
 
-        public CountryController(ICountryService weatherForecastService)
+        public CountryController(ICountryService countryService)
         {
-            _weatherForecastService = weatherForecastService;
+            _countryService = countryService;
         }
 
         [HttpGet("countries")]
         public async Task<IActionResult> GetAll()
         {
-            var countries = await _weatherForecastService.GetAllAsync();
+            var countries = await _countryService.GetAllAsync();
             return Ok(countries);
         }
 
         [HttpGet("countries/{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var countries = await _weatherForecastService.GetByIdAsync(id);
+            var countries = await _countryService.GetByIdAsync(id);
             if (countries == null)
             {
                 return NotFound();
@@ -43,7 +43,7 @@ namespace WeatherForecast.Api.Controllers
                 CountryCode = countryBody.CountryCode
             };
 
-            var created = await _weatherForecastService.CreateAsync(country);
+            var created = await _countryService.CreateAsync(country);
             if (!created)
             {
                 return BadRequest();
@@ -55,7 +55,7 @@ namespace WeatherForecast.Api.Controllers
         [HttpDelete("countries/{id:int}")]
         public async Task<IActionResult> DeleteById(int id)
         {
-            var deleted = await _weatherForecastService.DeleteByIdAsync(id);
+            var deleted = await _countryService.DeleteByIdAsync(id);
             if (!deleted)
             {
                 return NotFound();
