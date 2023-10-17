@@ -33,3 +33,7 @@ th, td {
 .get-weather {
     margin: auto
 }
+
+button {
+    margin: 3px 3px 3px 3px
+}
