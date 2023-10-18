@@ -9,24 +9,14 @@
     <p asp-for="ErrorMessage">@Model.ErrorMessage</p>
     <form method="post">
         <p></p>
-        <select name="countries" asp-page-handler="GetAllCountries">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-        </select>
+        <select name="countries" asp-items=@IndexModel.Countries aria-selected="SelectedCountry" onselect="SelectCountry"></select>
         <p></p>
-        <select name="cities">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-        </select>
+        <select name="cities" asp-items=@IndexModel.Cities aria-selected="SelectedCity" onselect="SelectCity"></select>
         <p></p>
         <button class="get-weather" type="submit" asp-page-handler="GetWeatherToday">Get weather!</button>
         <p></p>
         <button class="clear-button" asp-page-handler="ClearWeather">Clear</button>
-            <div asp-for="WeatherTodayList">
+            <div>
                 <table>
                     <tr class="weather-today-table-head">
                         <th>CityName</th>

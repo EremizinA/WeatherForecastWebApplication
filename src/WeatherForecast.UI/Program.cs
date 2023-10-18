@@ -25,8 +25,14 @@ host.Services.AddSingleton<ISqlServerDbConnectionFactory, SqlServerDbConnectionF
 
 host.Services.AddSingleton<IWeatherTodayRepository, WeatherTodayRepository>();
 host.Services.AddSingleton<IWeatherTodayService, WeatherTodayService>();
+host.Services.AddSingleton<ICountryRepository, CountryRepository>();
+host.Services.AddSingleton<ICountryService, CountryService>();
+host.Services.AddSingleton<ICityRepository, CityRepository>();
+host.Services.AddSingleton<ICityService, CityService>();
 host.Services.AddTransient(typeof(ILoggerAdapter<>), typeof(LoggerAdapter<>));
 host.Services.AddSingleton<WeatherTodayController, WeatherTodayController>();
+host.Services.AddSingleton<CountryController, CountryController>();
+host.Services.AddSingleton<CityController, CityController>();
 
 var app = host.Build();
 
